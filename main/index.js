@@ -22,18 +22,11 @@ const loader = loading => render({ loading });
 registerMicroApps(
   [
     {
-      name: 'react16',
-      entry: '//localhost:7100',
+      name: 'purehtml',
+      entry: '//localhost:7104',
       container: '#subapp-viewport',
       loader,
-      activeRule: '/react16',
-    },
-    {
-      name: 'react15',
-      entry: '//localhost:7102',
-      container: '#subapp-viewport',
-      loader,
-      activeRule: '/react15',
+      activeRule: '/purehtml',
     },
     {
       name: 'vue',
@@ -43,51 +36,58 @@ registerMicroApps(
       activeRule: '/vue',
     },
     {
-      name: 'purehtml',
-      entry: '//localhost:7104',
-      container: '#subapp-viewport',
-      loader,
-      activeRule: '/purehtml',
-    },
-    {
       name: 'vue3',
       entry: '//localhost:7105',
       container: '#subapp-viewport',
       loader,
       activeRule: '/vue3',
     },
+    {
+      name: 'react15',
+      entry: '//localhost:7102',
+      container: '#subapp-viewport',
+      loader,
+      activeRule: '/react15',
+    },
+    {
+      name: 'react16',
+      entry: '//localhost:7100',
+      container: '#subapp-viewport',
+      loader,
+      activeRule: '/react16',
+    },
   ],
   {
-    beforeLoad: [
-      app => {
-        console.log('[LifeCycle] before load %c%s', 'color: green;', app.name);
-      },
-    ],
-    beforeMount: [
-      app => {
-        console.log('[LifeCycle] before mount %c%s', 'color: green;', app.name);
-      },
-    ],
-    afterUnmount: [
-      app => {
-        console.log('[LifeCycle] after unmount %c%s', 'color: green;', app.name);
-      },
-    ],
+    // beforeLoad: [
+    //   app => {
+    //     console.log('[LifeCycle] before load %c%s', 'color: green;', app.name);
+    //   },
+    // ],
+    // beforeMount: [
+    //   app => {
+    //     console.log('[LifeCycle] before mount %c%s', 'color: green;', app.name);
+    //   },
+    // ],
+    // afterUnmount: [
+    //   app => {
+    //     console.log('[LifeCycle] after unmount %c%s', 'color: green;', app.name);
+    //   },
+    // ],
   },
 );
 
-const { onGlobalStateChange, setGlobalState } = initGlobalState({
-  user: 'qiankun',
-});
+// const { onGlobalStateChange, setGlobalState } = initGlobalState({
+//   user: 'qiankun',
+// });
 
-onGlobalStateChange((value, prev) => console.log('[onGlobalStateChange - master]:', value, prev));
+// onGlobalStateChange((value, prev) => console.log('[onGlobalStateChange - master]:', value, prev));
 
-setGlobalState({
-  ignore: 'master',
-  user: {
-    name: 'master',
-  },
-});
+// setGlobalState({
+//   ignore: 'master',
+//   user: {
+//     name: 'master',
+//   },
+// });
 
 /**
  * Step3 设置默认进入的子应用

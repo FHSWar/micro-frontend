@@ -1,10 +1,11 @@
 import Vue from 'vue/dist/vue.esm';
+Vue.config.productionTip = false
 
 function vueRender({ loading }) {
   return new Vue({
     template: `
       <div id="subapp-container">
-        <h4 v-if="loading" class="subapp-loading">Loading...</h4>
+        <h4 v-if="loading" class="subapp-loading">Vue Loading...</h4>
         <div id="subapp-viewport"></div>
       </div>
     `,
